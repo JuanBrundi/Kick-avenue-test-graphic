@@ -30,6 +30,8 @@ function Graphics() {
 
   useEffect(() => {
     function setDataForGraph() {
+
+      // SORT DATA BY DATE
       let sorted = sellingData?.data
       var length = sorted?.length;
       for (var i = 0; i < length; i++) {
@@ -72,9 +74,9 @@ function Graphics() {
         labels: allLabels,
         datasets: [
           {
-            label: "My First dataset",
+            label: "StockX Graphic",
             fill: false,
-            lineTension: 0.1,
+            lineTension: 0.3,
             backgroundColor: "rgba(75,192,192,0.4)",
             borderColor: "rgba(75,192,192,1)",
             borderCapStyle: "butt",
@@ -94,17 +96,17 @@ function Graphics() {
           },
         ],
       };
-
       setData(tempData);
     }
     setDataForGraph();
   }, [sellingData]);
 
-  console.log(data)
   return (
     <div>
       <h1>Table</h1>
-      <Line data={data} />
+      {
+        data ? <Line data={data} /> : <h1>Loading...</h1>
+      }
     </div>
   );
 }

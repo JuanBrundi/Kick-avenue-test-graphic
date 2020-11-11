@@ -117,21 +117,11 @@ function Graphics() {
       setDataForGraph()
     }, [sellingData])
 
-    const options = {
-      scales: {
-          xAxes: [{
-              type: 'time',
-              time: {
-                  unit: 'month'
-              }
-          }]
-      }
-  }
   return (
     <div>
       <h1>Kick Avenue</h1>
       <h3>Sale History Chart</h3>
-      {loading ? <Line data={setDataForGraph} options={options} /> : <h1>Loading...</h1>}
+      {loading ? <Line data={setDataForGraph} /> : <h1>Loading...</h1>}
     </div>
   );
 }
